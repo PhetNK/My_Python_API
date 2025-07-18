@@ -6,7 +6,7 @@ port_number = 9000
 app = Flask(__name__)
 @app.route("/")
 def index():
-    return "$$$ Welcom to slave api ! Try /health or /time $$$"
+    return "$$$ Welcom to slave API ! $$$\nTry\t-/health\n\t-/time\n\t-hostname "
 
 @app.route("/health")
 def health_check():
