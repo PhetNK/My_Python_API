@@ -1,5 +1,6 @@
 from flask import Flask, jsonify
 import datetime
+import socket   
 
 port_number = 9000
 app = Flask(__name__)
@@ -22,6 +23,10 @@ def get_time():
             "current_time": now.strftime("%Y-%m-%d[%H:%M:%S]")
     }
     return jsonify(response)
+@app.route("/hostname")
+def get_hostname():
+    hostname = socket.gethostname()
+    return jsonify({"hostname": hostname})
 
 if  __name__ == "__main__":
     app.run(host = "0.0.0.0" , port = port_number)
